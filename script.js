@@ -15,62 +15,58 @@ document.querySelector(".number").textContent = 13;
 document.querySelector(".score").textContent = 10;
 
 console.log(document.querySelector(".guess").value);
-
-document.querySelector(".guess").value = 23;
 */
-
-// const x = function () {
-//   console.log(23);
-// };
 
 let secretNumber = Math.trunc(Math.random() * 50) + 1;
 
 let score = 20;
+let highScore = 0;
+
+const newMessage = function (keyword) {
+  document.querySelector(".message").textContent = keyword;
+};
+const newMessageColor = function (keyword) {
+  document.querySelector(".message").style.color = keyword;
+};
+const newScore = function (keyword) {
+  document.querySelector(".score").textContent = keyword;
+};
+const newNumber = function (keyword) {
+  document.querySelector("#number").textContent = keyword;
+};
 
 // ---mechanism hot and cold game---
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector("input").value);
-  console.log(guess, typeof guess);
+  console.log(guess);
 
   //   if click on empty it display zero but zero is neither right, neither it is in the scope we want
   if (!guess) {
-    document.querySelector(
-      ".message"
-    ).textContent = `Please choose between 1 and 50. `;
-    document.querySelector(".message").style.color = "red";
+    newMessage(`Please choose between 1 and 50.`);
+    newMessageColor(`red`);
 
     // if the guess is correct
   } else if (guess === secretNumber) {
-    document.querySelector(".message").textContent = `You guessed right!`;
-    document.querySelector(".message").style.color = "green";
-    document.querySelector("#number").textContent = secretNumber;
+    newMessage(`You guessed right!`);
+    newMessageColor(`green`);
+    newNumber(secretNumber);
 
-    // if the guess is greater than the number
-  } else if (guess > secretNumber) {
+    if (score > highScore) highScore = score;
+    document.querySelector(".high_score").textContent = highScore;
+    // turnery to DRY code and avoid guess > secretNumber VS guess < secretNumber
+  } else if (guess !== secretNumber) {
     if (score > 1) {
-      document.querySelector(
-        ".message"
-      ).textContent = `You are too high, try once more! 🔥`;
+      newMessage(
+        guess > secretNumber
+          ? `You are too high, try once more! 🔥`
+          : `You are too low, try once more! 🧊`
+      );
       // wrong guess it substract the score tries
       score = score - 1;
-      document.querySelector(".score").textContent = score;
+      newScore(score);
     } else {
-      document.querySelector(".message").textContent = `You lost...`;
-      document.querySelector(".score").textContent = 0;
-    }
-
-    // if the guess is lower than the number
-  } else if (guess < secretNumber) {
-    if (score > 1) {
-      document.querySelector(
-        ".message"
-      ).textContent = `You are too low, try once more! 🧊`;
-      // wrong guess it substract the score tries
-      score = score - 1;
-      document.querySelector(".score").textContent = score;
-    } else {
-      document.querySelector(".message").textContent = `You lost...`;
-      document.querySelector(".score").textContent = 0;
+      newMessage(`You lost...`);
+      newScore(0);
     }
   }
 });
@@ -80,12 +76,11 @@ document.querySelector("img").addEventListener("click", function () {
   score = 20;
   secretNumber = Math.trunc(Math.random() * 50) + 1;
 
-  document.querySelector(".message").textContent = `Make a guess`;
-  document.querySelector(".message").style.color = "white";
-
-  document.querySelector(".score").textContent = score;
-
-  document.querySelector("#number").textContent = `?`;
+  newMessage(`Make a guess`);
+  newMessageColor(`white`);
+  newScore(score);
+  newNumber(`?`);
+  document.querySelector("input").value = ``;
 });
 
 /* --- WHAT SHALL I DO ---

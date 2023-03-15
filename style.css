@@ -96,7 +96,7 @@ section {
 #number:hover {
     transition-timing-function: ease-in-out;
     transition-duration: 1s;
-    border-radius: 110%;
+    border-radius: 120px;
     animation: rotation 3s infinite linear;
 }
 
