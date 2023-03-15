@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    color: #ffffff;
+    background-color: #222;
+    font-size: 30px;
+}
+
+/* ----- HEADER ----- */
+header {
+    border-bottom: 2px white solid;
+    height: 20rem;
+}
+
+#top_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 2vh;
+}
+
+h1 {
+    font-size: 70px;
+    text-align: center;
+}
+
+#replay {
+    position: absolute;
+    height: 60px;
+    width: 10%;
+    right: 0;
+}
+
+#replay:hover {
+    animation: rotate 2.25s infinite;
+}
+
+@keyframes rotate {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 380deg;
+    }
+}
+
+#rules {
+    text-align: center;
+    padding-top: 5vh;
+}
+
+#underline {
+    text-decoration: underline;
+    line-height: 30px;
+    text-underline-offset: 0.5vh;
+}
+
+/* ----- SECTION ----- */
+
+section {
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5%;
+
+}
+
+.message {
+    font-size: 40px;
+    margin-bottom: 2vh;
+}
+
+#number {
+    color: #222;
+    height: 200px;
+    width: 200px;
+    padding: 50px;
+    margin-top: 2vh;
+    background-color: white;
+    text-align: center;
+    font-size: 80px;
+}
+
+#number:hover {
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+    border-radius: 110%;
+    animation: rotation 3s infinite linear;
+}
+
+@keyframes rotation {
+    50% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* ----- ENTERING NUMBER DIV ----- */
+#enter_number {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+input,
+.check {
+    padding: 20px;
+    margin-top: 2vh;
+    font-size: 30px;
+}
+
+.check {
+    background-color: white;
+}
+
+.check:hover {
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
+    background-color: rgb(232, 184, 12);
+}
+
+/* ----- ASIDE ----- */
+
+footer {
+    height: 7rem;
+    width: 90%;
+    padding: 2% 10% 2% 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+
+}

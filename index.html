@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div id="top_header">
+        <h1>Hot and cold game!</h1>
+        <img src="img/replay.svg" alt="replay" id="replay" />
+      </div>
+      <p id="rules">
+        <i>
+          Pick a number between 1 to 50. If you guess right you win! But if you
+          guess <span id="underline">wrong</span>, a message will display for
+          you to know if you are above or below it!</i
+        >
+      </p>
+    </header>
+
+    <section>
+      <p class="message">Make a guess</p>
+      <div id="number">?</div>
+      <article>
+        <div id="enter_number">
+          <input type="number" />
+          <button class="btn check">Enter</button>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      <p class="label_score">Score: <span class="score">20</span></p>
+      <p class="label_high_score">
+        Highest score: <span class="high_score">0</span>
+      </p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
